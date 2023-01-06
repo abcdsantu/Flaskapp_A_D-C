@@ -15,7 +15,7 @@
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
     
     - name: Run `docker-compose up` again
-      community.docker.docker_compose: 
+      docker_compose: 
         project_src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         files: 
         - compose.yml
