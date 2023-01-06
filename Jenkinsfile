@@ -21,29 +21,31 @@ pipeline{
 
         stage("Sonar Publish"){
             steps{
-                withSonrQubeEnv ("sonar") {
-                    sh "mvn sonar:sonar"
+                
+                    sh "docker images"
                 }
 
-            }
+            
         }
 
         stage("Qulity Gate"){
             steps{
-                script{
-                    timeout(time:1, unit: "HOURS") {
-                        def qg= waitForQualityGate ()
-                        if (qg.status != "OK" ) {
-                            error "Aborting the pipeline due to Quality Gate failed: ${qg.status}"
-                        }
-                    }
-                    
-
-
-
-                }
+                 sh "docker images"
+                
             }
         }
+
+        stage("Ansible Deploy"){
+            steps {
+                echo "${env.BUILD_NUMBER}"
+                        println "${env.BUILD_NUMBER}"
+                        ansiblePlaybook credentialsId: 'ansibleid', disableHostKeyChecking: true, extras: '-e BUILD_NUMBER=$BUILD_NUMBER', installation: 'ansible2', inventory: 'UAT.inv', playbook: 'UAT-deploy.yaml'
+            }
+        }
+
+        
+
+
 
     }
 

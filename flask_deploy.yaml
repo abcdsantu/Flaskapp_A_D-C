@@ -20,6 +20,6 @@
       community.docker.docker_compose: 
         project_src: /home/jenkins/flask_app/flaskapp_V{{BUILD_NUMBER}}
         files: 
-        - docker-compose.yml
+        - compose.yml
     - name: verify fy the docker ps -a
       shell: docker ps -a
