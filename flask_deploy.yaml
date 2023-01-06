@@ -11,11 +11,10 @@
 
 
     - name: source from jenkinks's 
-      synchronize: 
+      copy: 
         src:  /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/flskapp_BUILD_NUMBER.zip
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
-        mode: pull
-      delegate_to: "UAT-servers"
+        remote_src: yes
       
     
     - name: Unarchive a file that is already on the remote machine
@@ -23,6 +22,7 @@
         src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/flskapp_BUILD_NUMBER.zip
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
         remote_src: yes
+        validate: ls 
     
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
