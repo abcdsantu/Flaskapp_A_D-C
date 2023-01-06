@@ -17,6 +17,12 @@
         remote_src: true
         directory_mode: yes
     
+    - name: Unarchive a file that is already on the remote machine
+      ansible.builtin.unarchive:
+        src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/flskapp_BUILD_NUMBER.zip
+        dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
+        remote_src: yes
+    
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
         project_src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
