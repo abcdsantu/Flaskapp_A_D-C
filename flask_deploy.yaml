@@ -2,7 +2,7 @@
   hosts:  UAT-servers
   gather_facts:
   vars:
-    artifact_item: /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/flskapp_BUILD_NUMBER.zip
+    artifact_item: /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/
   tasks:
 
     - name: create a directory if it doesn't exist
