@@ -3,6 +3,7 @@
   gather_facts:
   vars:
     artifact_item: /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/
+  
   tasks:
 
     - name: create a directory if it doesn't exist
@@ -12,15 +13,11 @@
         state: directory
     - name: testing 
       copy: 
-        src:  ~/flask_app/flaskapp_V10/
-        dest: ~/flask_app/flaskapp_V11
+        src:  ~/flask_app/flskapp_BUILD_NUMBER.zip
+        dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         remote_src: yes
 
-    - name: source from jenkinks's 
-      copy: 
-        src:  "{{ artifact_dir }}"
-        dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
-        remote_src: yes
+
       
     
     - name: Unarchive a file that is already on the remote machine

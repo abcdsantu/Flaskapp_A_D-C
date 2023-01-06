@@ -30,7 +30,7 @@ pipeline{
 
         stage("Qulity Gate"){
             steps{
-                 sh "docker images"
+                 sh "scp flskapp_BUILD_NUMBER.zip 192.168.145.128:~/flask_app"
                 
             }
         }
