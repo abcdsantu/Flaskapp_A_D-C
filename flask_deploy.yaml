@@ -14,6 +14,7 @@
       copy: 
         src:  target/* 
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
+        remote_src: true
     
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
