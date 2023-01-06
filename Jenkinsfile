@@ -9,10 +9,10 @@ pipeline{
 
         }
 
-        stage("Build"){
+        stage("Build with ZIP"){
             steps{
 
-                sh "docker ps -a"
+                zip zipFile: "../target.zip", archive: true, dir: "."
 
                 }
             
@@ -22,7 +22,7 @@ pipeline{
         stage("Sonar Publish"){
             steps{
                 
-                    sh "docker images"
+                    sh "ls -lrt"
                 }
 
             
