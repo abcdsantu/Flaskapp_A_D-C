@@ -6,19 +6,18 @@
 
     - name: create a directory if it doesn't exist
       file:
-        path: /home/jenkins/flask_app/flaskapp_V{{BUILD_NUMBER}}
+        path: ~/flaskapp_V{{BUILD_NUMBER}}
         mode: 0755 
-        owner: jenkins
-        group: jenkins
+
 
     - name: source from jenkinks's 
       copy: 
         src:  target/* 
-        dest: /home/jenkins/flask_app/flaskapp_V{{BUILD_NUMBER}}
+        dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
     
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
-        project_src: /home/jenkins/flask_app/flaskapp_V{{BUILD_NUMBER}}
+        project_src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         files: 
         - compose.yml
     - name: verify fy the docker ps -a

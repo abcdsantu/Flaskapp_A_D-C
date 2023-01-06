@@ -39,7 +39,7 @@ pipeline{
             steps {
                 echo "${env.BUILD_NUMBER}"
                         println "${env.BUILD_NUMBER}"
-                        ansiblePlaybook credentialsId: 'ansibleid', disableHostKeyChecking: true, extras: '-e BUILD_NUMBER=$BUILD_NUMBER', installation: 'ansible2', inventory: 'UAT.inv', playbook: 'UAT-deploy.yaml'
+                        ansiblePlaybook credentialsId: 'ansibleid', disableHostKeyChecking: true, extras: '-e BUILD_NUMBER=$BUILD_NUMBER', installation: 'ansible2', inventory: 'UAT.inv', playbook: 'flask_deploy.yaml'
             }
         }
 
