@@ -12,7 +12,7 @@ pipeline{
         stage("Build with ZIP"){
             steps{
 
-                zip zipFile: "flskapp_BUILD_NUMBER.zip", archive: true, dir: "./"
+                zip zipFile: "$BUILD_NUMBER.zip", archive: true, dir: "./"
 
                 }
             
@@ -30,7 +30,7 @@ pipeline{
 
         stage("Qulity Gate"){
             steps{
-                 sh "scp flskapp_BUILD_NUMBER.zip 192.168.145.128:~/flask_app"
+                 sh "scp ${BUILD_NUMBER}.zip 192.168.145.128:~/flask_app"
                 
             }
         }

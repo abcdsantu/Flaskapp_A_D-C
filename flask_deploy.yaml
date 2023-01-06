@@ -13,7 +13,7 @@
         state: directory
     - name: testing 
       copy: 
-        src:  ~/flask_app/flskapp_BUILD_NUMBER.zip
+        src:  ~/flask_app/{{BUILD_NUMBER}}.zip
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         remote_src: yes
 
@@ -22,7 +22,7 @@
       shell: docker ps -a
     
     - name: Unarchive a file that is already on the remote machine
-      shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flskapp_BUILD_NUMBER.zip"
+      shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip {{BUILD_NUMBER}}.zip"
 
     - name: Run `docker-compose up` again
       command: "docker-compose  ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/compose.yml up "
