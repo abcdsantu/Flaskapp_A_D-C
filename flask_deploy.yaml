@@ -24,5 +24,9 @@
     - name: Unarchive a file that is already on the remote machine
       shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flask.zip"
 
-    - name: Run `docker-compose up` again
-      command: "docker-compose  ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/compose.yml up "
+    - name: Run docker-compose up
+      docker_compose:
+        project_src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/compose.yaml
+        command: up
+        no_recreate: true
+      
