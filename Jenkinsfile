@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Checkout"){
             steps{
-                git branch: main, url: https://github.com/abcdsantu/Flaskapp_A_D-C.git
+                git branch: "main", url: "https://github.com/abcdsantu/Flaskapp_A_D-C.git"
 
             }
 
@@ -12,7 +12,7 @@ pipeline{
         stage("Build"){
             steps{
 
-                sh "/opt/maven/bin/mvn clean package -DskipTests=true"
+                sh "docker ps -a"
 
                 }
             
