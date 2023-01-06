@@ -21,10 +21,10 @@
       
     
     - name: Unarchive a file that is already on the remote machine
-      ansible.builtin.unarchive:
+      unarchive:
         src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/flskapp_BUILD_NUMBER.zip
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
-        remote_src: yes
+        remote_src: no
         validate: ls 
     
     - name: Run `docker-compose up` again
