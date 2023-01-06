@@ -22,7 +22,7 @@ pipeline{
         stage("Sonar Publish"){
             steps{
                 
-                    sh "ls -lrt"
+                    sh "/usr/bin/docker ps"
                 }
 
             

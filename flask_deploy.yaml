@@ -19,13 +19,13 @@
 
 
     - name: verify fy the docker ps -a
-      shell: docker ps 
+      shell: /usr/bin/docker ps 
     
     - name: Unarchive a file that is already on the remote machine
       shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flask.zip"
 
     - name: Run docker-compose up
-      shell: docker-compose up -f compose.yaml
+      shell: /usr/bin/docker-compose up -f compose.yaml
        
         
       
