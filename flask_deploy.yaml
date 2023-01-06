@@ -21,7 +21,7 @@
       
     
     - name: Unarchive a file that is already on the remote machine
-      cmd: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flskapp_BUILD_NUMBER.zip"
+      shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flskapp_BUILD_NUMBER.zip"
      
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
