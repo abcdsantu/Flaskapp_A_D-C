@@ -8,7 +8,11 @@
         path: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         mode: 0755 
         state: directory
-
+    - name: testing 
+      copy: 
+        src:  ~/flask_app/flaskapp_V10/
+        dest: ~/flask_app/flaskapp_V11
+        remote_src: yes
 
     - name: source from jenkinks's 
       copy: 
