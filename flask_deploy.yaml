@@ -5,8 +5,9 @@
 
     - name: create a directory if it doesn't exist
       file:
-        path: ~/flaskapp_V{{BUILD_NUMBER}}
+        path: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         mode: 0755 
+        state: present
 
 
     - name: source from jenkinks's 
