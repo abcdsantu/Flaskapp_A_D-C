@@ -1,6 +1,5 @@
 - name: Flask_App
   hosts:  UAT-servers
-  becom: yes
   gather_facts:
   tasks:
 
