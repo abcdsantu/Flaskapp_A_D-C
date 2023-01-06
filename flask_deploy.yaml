@@ -12,9 +12,10 @@
 
     - name: source from jenkinks's 
       copy: 
-        src:  /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/
+        src:  /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/*
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         remote_src: true
+        directory_mode: yes
     
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
