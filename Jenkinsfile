@@ -12,7 +12,7 @@ pipeline{
         stage("Build with ZIP"){
             steps{
 
-                zip zipFile: "../target.zip", archive: true, dir: "."
+                zip zipFile: "target.zip", archive: true, dir: "./"
 
                 }
             
