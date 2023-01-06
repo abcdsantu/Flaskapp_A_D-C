@@ -18,15 +18,14 @@
         remote_src: yes
 
 
-      
+    - name: verify fy the docker ps -a
+      shell: docker ps -a
     
     - name: Unarchive a file that is already on the remote machine
       shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flskapp_BUILD_NUMBER.zip"
      
     - name: Run `docker-compose up` again
       community.docker.docker_compose: 
-        project_src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
+        project_src: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
         files: 
         - compose.yml
-    - name: verify fy the docker ps -a
-      shell: docker ps -a
