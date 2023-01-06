@@ -25,4 +25,4 @@
       shell: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; unzip flskapp_BUILD_NUMBER.zip"
 
     - name: Run `docker-compose up` again
-      command: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; docker-compose -f ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/compose.yml up -d"
+      command: "cd ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/; docker-compose -f ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/compose.yml up "
