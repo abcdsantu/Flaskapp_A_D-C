@@ -1,6 +1,8 @@
 - name: Flask_App
   hosts:  UAT-servers
   gather_facts:
+  vars:
+    artifact_item: /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/flskapp_BUILD_NUMBER.zip
   tasks:
 
     - name: create a directory if it doesn't exist
@@ -16,7 +18,7 @@
 
     - name: source from jenkinks's 
       copy: 
-        src:  /var/lib/jenkins/workspace/ansible_docker-compose/santu_flask01/flskapp_BUILD_NUMBER.zip
+        src:  {{ artifact_dir }}
         dest: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}/
         remote_src: yes
       
