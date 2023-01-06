@@ -7,7 +7,7 @@
       file:
         path: ~/flask_app/flaskapp_V{{BUILD_NUMBER}}
         mode: 0755 
-        state: present
+        state: directory
 
 
     - name: source from jenkinks's 
